@@ -10,21 +10,22 @@ namespace pjATM
     {
         public double Balance { get; set; }
         public Cuenta Cuenta { get; set; }
+        public double Monto { get; set; }
 
         public String Retirar()
         {
-            if (this.Cuenta.Retirar())
+            if (Cuenta.Retirar(Monto))
             {
-                this.Balance -= this.Cuenta.Monto;
+                this.Balance -= Monto;
                 return "Retiro exitoso!";
             }
             return "";
         }
         public String Depositar()
         {
-            if (this.Cuenta.Depositar())
+            if (this.Cuenta.Depositar(this.Monto))
             {
-                this.Balance += this.Cuenta.Monto;
+                this.Balance += Monto;
                 return "Deposito con exito";
             }
             return "";

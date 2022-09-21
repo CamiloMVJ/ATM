@@ -11,32 +11,31 @@ namespace pjATM
         public String? Nombre { get; set; }
         public int NumCuenta { get; set; }
         public double Balance { get; set; }
-        public double Monto { get; set; }
         public int PIN { get; set; }
 
-        public bool Retirar()
+        public bool Retirar(double monto)
         {
-            if(this.Monto <= this.Balance)
+            if (monto <= this.Balance)
             {
-                this.Balance -= this.Monto;
+                this.Balance -= monto;
                 return true;
             }
             return false;
         }
 
-        public bool Depositar()
+        public bool Depositar(double monto)
         {
-            if(this.Monto > 0)
+            if (monto > 0)
             {
-                this.Balance += this.Monto;
+                this.Balance += monto;
                 return true;
             }
             return false;
         }
 
-        public bool Validar(int NumCuenta, int PIN)
+        public bool Validar(int NumCuenta, int PIN, String nombre)
         {
-            if (NumCuenta == this.NumCuenta && PIN == this.PIN)
+            if (NumCuenta == this.NumCuenta && PIN == this.PIN && nombre == this.Nombre)
             {
                 return true;
             }
