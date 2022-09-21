@@ -48,13 +48,18 @@
             this.label5 = new System.Windows.Forms.Label();
             this.checkDeposito = new System.Windows.Forms.CheckBox();
             this.checkRetiro = new System.Windows.Forms.CheckBox();
+            this.lvTransacciones = new System.Windows.Forms.ListView();
+            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
             this.groupBox1.SuspendLayout();
             this.gbAcciones.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(134, 48);
+            this.txtNombre.Location = new System.Drawing.Point(178, 50);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(202, 25);
             this.txtNombre.TabIndex = 0;
@@ -62,7 +67,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 45);
+            this.label1.Location = new System.Drawing.Point(50, 47);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 17);
             this.label1.TabIndex = 1;
@@ -79,7 +84,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(35, 79);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(555, 134);
+            this.groupBox1.Size = new System.Drawing.Size(639, 134);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informacion requerida";
@@ -87,7 +92,7 @@
             // buttIngresar
             // 
             this.buttIngresar.AutoSize = true;
-            this.buttIngresar.Location = new System.Drawing.Point(422, 86);
+            this.buttIngresar.Location = new System.Drawing.Point(476, 84);
             this.buttIngresar.Name = "buttIngresar";
             this.buttIngresar.Size = new System.Drawing.Size(75, 27);
             this.buttIngresar.TabIndex = 3;
@@ -97,7 +102,7 @@
             // 
             // txtPIN
             // 
-            this.txtPIN.Location = new System.Drawing.Point(422, 45);
+            this.txtPIN.Location = new System.Drawing.Point(476, 43);
             this.txtPIN.Mask = "99999999999999999999999999999999999999999";
             this.txtPIN.Name = "txtPIN";
             this.txtPIN.Size = new System.Drawing.Size(100, 25);
@@ -106,7 +111,7 @@
             // 
             // txtNumCuenta
             // 
-            this.txtNumCuenta.Location = new System.Drawing.Point(134, 84);
+            this.txtNumCuenta.Location = new System.Drawing.Point(178, 86);
             this.txtNumCuenta.Mask = "99999999999999999999999999999999999";
             this.txtNumCuenta.Name = "txtNumCuenta";
             this.txtNumCuenta.Size = new System.Drawing.Size(100, 25);
@@ -116,7 +121,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(363, 48);
+            this.label4.Location = new System.Drawing.Point(417, 46);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(30, 17);
             this.label4.TabIndex = 4;
@@ -125,7 +130,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 84);
+            this.label3.Location = new System.Drawing.Point(50, 86);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(122, 17);
             this.label3.TabIndex = 3;
@@ -152,7 +157,7 @@
             this.lvInfo.GridLines = true;
             this.lvInfo.Location = new System.Drawing.Point(41, 228);
             this.lvInfo.Name = "lvInfo";
-            this.lvInfo.Size = new System.Drawing.Size(549, 80);
+            this.lvInfo.Size = new System.Drawing.Size(633, 80);
             this.lvInfo.TabIndex = 3;
             this.lvInfo.UseCompatibleStateImageBehavior = false;
             this.lvInfo.View = System.Windows.Forms.View.Details;
@@ -184,7 +189,7 @@
             this.gbAcciones.Location = new System.Drawing.Point(41, 359);
             this.gbAcciones.Name = "gbAcciones";
             this.gbAcciones.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.gbAcciones.Size = new System.Drawing.Size(350, 207);
+            this.gbAcciones.Size = new System.Drawing.Size(290, 155);
             this.gbAcciones.TabIndex = 4;
             this.gbAcciones.TabStop = false;
             this.gbAcciones.Text = "Acciones";
@@ -202,7 +207,7 @@
             // buttRegistrar
             // 
             this.buttRegistrar.AutoSize = true;
-            this.buttRegistrar.Location = new System.Drawing.Point(238, 104);
+            this.buttRegistrar.Location = new System.Drawing.Point(197, 97);
             this.buttRegistrar.Name = "buttRegistrar";
             this.buttRegistrar.Size = new System.Drawing.Size(75, 27);
             this.buttRegistrar.TabIndex = 4;
@@ -239,13 +244,50 @@
             this.checkRetiro.Text = "Retiro";
             this.checkRetiro.UseVisualStyleBackColor = true;
             // 
+            // lvTransacciones
+            // 
+            this.lvTransacciones.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7});
+            this.lvTransacciones.GridLines = true;
+            this.lvTransacciones.Location = new System.Drawing.Point(368, 359);
+            this.lvTransacciones.Name = "lvTransacciones";
+            this.lvTransacciones.Size = new System.Drawing.Size(306, 242);
+            this.lvTransacciones.TabIndex = 5;
+            this.lvTransacciones.UseCompatibleStateImageBehavior = false;
+            this.lvTransacciones.View = System.Windows.Forms.View.Details;
+            this.lvTransacciones.Visible = false;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "#";
+            this.columnHeader4.Width = 40;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Monto";
+            this.columnHeader5.Width = 80;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Cuenta";
+            this.columnHeader6.Width = 80;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Accion";
+            this.columnHeader7.Width = 100;
+            // 
             // frmATM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.ClientSize = new System.Drawing.Size(651, 616);
+            this.ClientSize = new System.Drawing.Size(802, 646);
+            this.Controls.Add(this.lvTransacciones);
             this.Controls.Add(this.gbAcciones);
             this.Controls.Add(this.lvInfo);
             this.Controls.Add(this.label2);
@@ -286,5 +328,10 @@
         private CheckBox checkRetiro;
         private Button buttRegistrar;
         private MaskedTextBox txtMonto;
+        private ListView lvTransacciones;
+        private ColumnHeader columnHeader4;
+        private ColumnHeader columnHeader5;
+        private ColumnHeader columnHeader6;
+        private ColumnHeader columnHeader7;
     }
 }

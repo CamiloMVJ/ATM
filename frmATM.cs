@@ -4,6 +4,7 @@ namespace pjATM
     {
         public Cuenta cliente = new Cuenta();
         public ATM ATM = new ATM();
+        int num = 0;
         public frmATM()
         {
             InitializeComponent();
@@ -12,7 +13,7 @@ namespace pjATM
 
         private void buttIngresar_Click(object sender, EventArgs e)
         {
-            
+
             int numCuenta = int.Parse(txtNumCuenta.Text);
             int PIN = int.Parse(txtPIN.Text);
             String nombre = txtNombre.Text;
@@ -21,10 +22,11 @@ namespace pjATM
             {
                 MessageBox.Show("¡Cuenta Valida!", "Notificacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                ListView();
+                ListViewInfo();
 
                 gbAcciones.Visible = true;
                 lvInfo.Visible = true;
+                lvTransacciones.Visible = true;
             }
             else
             {
@@ -47,7 +49,7 @@ namespace pjATM
             cliente.Nombre = "Camilo Javier";
 
             ATM.Balance = 5000;
-            ATM.Cuenta = cliente; 
+            ATM.Cuenta = cliente;
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -66,8 +68,9 @@ namespace pjATM
                     {
                         ATM.Retirar();
                         lvInfo.Items.Clear();
-                        ListView();
+                        ListViewInfo();
                         MessageBox.Show("Retiro completado", "Notificacion");
+                        ListViewTrans();
                     }
                     else
                     {
@@ -85,16 +88,32 @@ namespace pjATM
             {
                 ATM.Depositar();
                 lvInfo.Items.Clear();
-                ListView();
+                ListViewInfo();
                 MessageBox.Show("Deposito exitoso", "Notificacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ListViewTrans();
             }
         }
-        public void ListView()
+        public void ListViewInfo()
         {
             ListViewItem info = new ListViewItem(cliente.Nombre);
             info.SubItems.Add(cliente.NumCuenta.ToString());
             info.SubItems.Add(cliente.Balance.ToString());
             lvInfo.Items.Add(info);
+        }
+
+        public void ListViewTrans()
+        {
+            String accion = "";
+            ListViewItem trans = new ListViewItem(num.ToString());
+            trans.SubItems.Add(txtMonto.Text);
+            trans.SubItems.Add(cliente.NumCuenta.ToString());
+            if (checkDeposito.Checked)
+                accion = "Deposito";
+            else if (checkRetiro.Checked)
+                accion = "Retiro";
+            trans.SubItems.Add(accion);
+            lvTransacciones.Items.Add(trans);
+            num++;
         }
     }
 }
