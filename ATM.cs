@@ -14,7 +14,8 @@ namespace pjATM
 
         public String Retirar()
         {
-            if (Cuenta.Retirar(Monto))
+            ValidarNum();
+            if (Cuenta.Retirar(this.Monto))
             {
                 this.Balance -= Monto;
                 return "Retiro exitoso!";
@@ -29,6 +30,12 @@ namespace pjATM
                 return "Deposito con exito";
             }
             return "";
+        }
+
+        public void ValidarNum()
+        {
+            if (this.Monto < 0)
+                this.Monto = this.Monto * -1;
         }
     }
 }

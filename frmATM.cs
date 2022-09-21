@@ -12,6 +12,7 @@ namespace pjATM
 
         private void buttIngresar_Click(object sender, EventArgs e)
         {
+            
             int numCuenta = int.Parse(txtNumCuenta.Text);
             int PIN = int.Parse(txtPIN.Text);
             String nombre = txtNombre.Text;
@@ -27,7 +28,7 @@ namespace pjATM
             }
             else
             {
-                MessageBox.Show("Informacion ingresada no valida", "Notificacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Informacion ingresada no valida, Intente de nuevo", "Notificacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPIN.Clear();
                 txtNumCuenta.Clear();
                 txtNombre.Clear();
@@ -46,16 +47,11 @@ namespace pjATM
             cliente.Nombre = "Camilo Javier";
 
             ATM.Balance = 5000;
-            ATM.Cuenta = cliente;
+            ATM.Cuenta = cliente; 
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            if (double.Parse(txtMonto.Text) < 0)
-                ATM.Monto = double.Parse(txtMonto.Text) * -1;
-            else
-                ATM.Monto = double.Parse(txtMonto.Text);
-            
+            ATM.Monto = double.Parse(txtMonto.Text); ATM.ValidarNum();
             if (checkRetiro.Checked && checkDeposito.Checked)
             {
                 MessageBox.Show("Seleccione solo un metodo", "Notificacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -64,12 +60,19 @@ namespace pjATM
             }
             else if (checkRetiro.Checked)
             {
-                if (cliente.Balance >= ATM.Monto && ATM.Balance >= ATM.Monto)
+                if (cliente.Balance >= ATM.Monto)
                 {
-                    ATM.Retirar();
-                    lvInfo.Items.Clear();
-                    ListView();
-                    MessageBox.Show("Retiro completado", "Notificacion");
+                    if (ATM.Balance >= ATM.Monto)
+                    {
+                        ATM.Retirar();
+                        lvInfo.Items.Clear();
+                        ListView();
+                        MessageBox.Show("Retiro completado", "Notificacion");
+                    }
+                    else
+                    {
+                        MessageBox.Show("El cajero no cuenta con dinero suficiente, favor ingrese un monto inferior", "Notificacion", MessageBoxButtons.OK);
+                    }
                 }
                 else
                 {

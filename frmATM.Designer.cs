@@ -43,9 +43,9 @@
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
             this.gbAcciones = new System.Windows.Forms.GroupBox();
+            this.txtMonto = new System.Windows.Forms.MaskedTextBox();
             this.buttRegistrar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtMonto = new System.Windows.Forms.TextBox();
             this.checkDeposito = new System.Windows.Forms.CheckBox();
             this.checkRetiro = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
@@ -134,12 +134,14 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(320, 9);
+            this.label2.Location = new System.Drawing.Point(224, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 37);
+            this.label2.Size = new System.Drawing.Size(157, 39);
             this.label2.TabIndex = 2;
             this.label2.Text = "Banco ATM";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lvInfo
             // 
@@ -148,9 +150,9 @@
             this.columnHeader2,
             this.columnHeader3});
             this.lvInfo.GridLines = true;
-            this.lvInfo.Location = new System.Drawing.Point(35, 265);
+            this.lvInfo.Location = new System.Drawing.Point(41, 228);
             this.lvInfo.Name = "lvInfo";
-            this.lvInfo.Size = new System.Drawing.Size(403, 207);
+            this.lvInfo.Size = new System.Drawing.Size(549, 80);
             this.lvInfo.TabIndex = 3;
             this.lvInfo.UseCompatibleStateImageBehavior = false;
             this.lvInfo.View = System.Windows.Forms.View.Details;
@@ -159,27 +161,27 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Nombre";
-            this.columnHeader1.Width = 120;
+            this.columnHeader1.Width = 180;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Numero de Cuenta";
-            this.columnHeader2.Width = 150;
+            this.columnHeader2.Width = 180;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Balance";
-            this.columnHeader3.Width = 120;
+            this.columnHeader3.Width = 180;
             // 
             // gbAcciones
             // 
+            this.gbAcciones.Controls.Add(this.txtMonto);
             this.gbAcciones.Controls.Add(this.buttRegistrar);
             this.gbAcciones.Controls.Add(this.label5);
-            this.gbAcciones.Controls.Add(this.txtMonto);
             this.gbAcciones.Controls.Add(this.checkDeposito);
             this.gbAcciones.Controls.Add(this.checkRetiro);
             this.gbAcciones.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.gbAcciones.Location = new System.Drawing.Point(495, 265);
+            this.gbAcciones.Location = new System.Drawing.Point(41, 359);
             this.gbAcciones.Name = "gbAcciones";
             this.gbAcciones.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.gbAcciones.Size = new System.Drawing.Size(350, 207);
@@ -187,6 +189,15 @@
             this.gbAcciones.TabStop = false;
             this.gbAcciones.Text = "Acciones";
             this.gbAcciones.Visible = false;
+            // 
+            // txtMonto
+            // 
+            this.txtMonto.Location = new System.Drawing.Point(80, 99);
+            this.txtMonto.Mask = "99999999999999999999999999999999999";
+            this.txtMonto.Name = "txtMonto";
+            this.txtMonto.Size = new System.Drawing.Size(100, 25);
+            this.txtMonto.TabIndex = 5;
+            this.txtMonto.ValidatingType = typeof(int);
             // 
             // buttRegistrar
             // 
@@ -207,13 +218,6 @@
             this.label5.Size = new System.Drawing.Size(49, 17);
             this.label5.TabIndex = 3;
             this.label5.Text = "Monto";
-            // 
-            // txtMonto
-            // 
-            this.txtMonto.Location = new System.Drawing.Point(88, 104);
-            this.txtMonto.Name = "txtMonto";
-            this.txtMonto.Size = new System.Drawing.Size(100, 25);
-            this.txtMonto.TabIndex = 2;
             // 
             // checkDeposito
             // 
@@ -239,8 +243,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.ClientSize = new System.Drawing.Size(914, 510);
+            this.ClientSize = new System.Drawing.Size(651, 616);
             this.Controls.Add(this.gbAcciones);
             this.Controls.Add(this.lvInfo);
             this.Controls.Add(this.label2);
@@ -277,9 +282,9 @@
         private ColumnHeader columnHeader3;
         private GroupBox gbAcciones;
         private Label label5;
-        private TextBox txtMonto;
         private CheckBox checkDeposito;
         private CheckBox checkRetiro;
         private Button buttRegistrar;
+        private MaskedTextBox txtMonto;
     }
 }
