@@ -11,6 +11,7 @@ namespace pjATM
 
         }
 
+
         private void buttIngresar_Click(object sender, EventArgs e)
         {
 
@@ -24,8 +25,7 @@ namespace pjATM
 
                 ListViewInfo();
 
-                gbAcciones.Visible = true;
-                lvInfo.Visible = true;
+                gbAcciones2.Visible = true;
                 lvTransacciones.Visible = true;
             }
             else
@@ -35,7 +35,8 @@ namespace pjATM
                 txtNumCuenta.Clear();
                 txtNombre.Clear();
                 txtNombre.Focus();
-                gbAcciones.Visible = false;
+                gbAcciones2.Visible = false;
+                gbAccion.Visible = false;
                 lvInfo.Visible = false;
             }
 
@@ -54,43 +55,75 @@ namespace pjATM
         private void button1_Click(object sender, EventArgs e)
         {
             ATM.Monto = double.Parse(txtMonto.Text); ATM.ValidarNum();
-            if (checkRetiro.Checked && checkDeposito.Checked)
+            if (0 == 1)
             {
-                MessageBox.Show("Seleccione solo un metodo", "Notificacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                checkDeposito.Checked = false;
-                checkRetiro.Checked = false;
-            }
-            else if (checkRetiro.Checked)
-            {
-                if (cliente.Balance >= ATM.Monto)
+                if (checkRetiro.Checked && checkDeposito.Checked)
                 {
-                    if (ATM.Balance >= ATM.Monto)
+                    MessageBox.Show("Seleccione solo un metodo", "Notificacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    checkDeposito.Checked = false;
+                    checkRetiro.Checked = false;
+                }
+                else if (checkRetiro.Checked)
+                {
+                    if (cliente.Balance >= ATM.Monto)
                     {
-                        ATM.Retirar();
-                        lvInfo.Items.Clear();
-                        ListViewInfo();
-                        MessageBox.Show("Retiro completado", "Notificacion");
-                        ListViewTrans();
+                        if (ATM.Balance >= ATM.Monto)
+                        {
+                            ATM.Retirar();
+                            lvInfo.Items.Clear();
+                            ListViewInfo();
+                            MessageBox.Show("Retiro completado", "Notificacion");
+                            ListViewTrans();
+                        }
+                        else
+                        {
+                            MessageBox.Show("El cajero no cuenta con dinero suficiente, favor ingrese un monto inferior", "Notificacion", MessageBoxButtons.OK);
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("El cajero no cuenta con dinero suficiente, favor ingrese un monto inferior", "Notificacion", MessageBoxButtons.OK);
+                        MessageBox.Show("No posee suficiente saldo, favor ingrese un monto inferior", "Notificacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtMonto.Clear();
+                        txtMonto.Focus();
                     }
                 }
-                else
+                else if (checkDeposito.Checked)
                 {
-                    MessageBox.Show("No posee suficiente saldo, favor ingrese un monto inferior", "Notificacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtMonto.Clear();
-                    txtMonto.Focus();
+                    ATM.Depositar();
+                    lvInfo.Items.Clear();
+                    ListViewInfo();
+                    MessageBox.Show("Deposito exitoso", "Notificacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ListViewTrans();
                 }
             }
-            else if (checkDeposito.Checked)
+            switch (int.Parse(txtOpcion.Text))
             {
-                ATM.Depositar();
-                lvInfo.Items.Clear();
-                ListViewInfo();
-                MessageBox.Show("Deposito exitoso", "Notificacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ListViewTrans();
+                case (int)Acciones.Retiro:
+                    {
+                        if (cliente.Balance >= ATM.Monto)
+                        {
+                            if (ATM.Balance >= ATM.Monto)
+                            {
+                                ATM.Retirar();
+                                lvInfo.Items.Clear();
+                                ListViewInfo();
+                                MessageBox.Show("Retiro completado", "Notificacion");
+                                ListViewTrans();
+                            }
+                            else
+                            {
+                                MessageBox.Show("El cajero no cuenta con dinero suficiente, favor ingrese un monto inferior", "Notificacion", MessageBoxButtons.OK);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("No posee suficiente saldo, favor ingrese un monto inferior", "Notificacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            txtMonto.Clear();
+                            txtMonto.Focus();
+                        }
+                        break;
+                    }
+                default: MessageBox.Show("Opcion no valida", "Notificacion", MessageBoxButtons.OK, MessageBoxIcon.Information); break;
             }
         }
         public void ListViewInfo()
@@ -114,6 +147,47 @@ namespace pjATM
             trans.SubItems.Add(accion);
             lvTransacciones.Items.Add(trans);
             num++;
+        }
+
+        private void maskedTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            txtMonto.Clear();
+            if (txtOpcion.Text.Trim().Length != 0)
+            {
+                switch (int.Parse(txtOpcion.Text))
+                {
+                    case (int)Acciones.Retiro:
+                        {
+                            gbAccion.Text = "Retiro";
+                            gbAccion.Visible = true;
+                            break;
+                        }
+                    case (int)Acciones.Saldo:
+                        {
+                            if (gbAccion.Visible)
+                            {
+                                gbAccion.Visible = false;
+                            }
+                            lvInfo.Visible = true;
+                            break;
+                        }
+                    case (int)Acciones.Salir:
+                        {
+                            DialogResult salir = MessageBox.Show("¿Esta seguro que quiere salir?", "Notificacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            if (salir == DialogResult.Yes)
+                                this.Close();
+                            break;
+                        }
+                    default: MessageBox.Show("Valor ingresado no valido", "Notificacion", MessageBoxButtons.OK, MessageBoxIcon.Information); break;
+                }
+            }
+
+        }
+        internal enum Acciones
+        {
+            Retiro = 1,
+            Saldo = 2,
+            Salir = 3,
         }
     }
 }

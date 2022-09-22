@@ -43,18 +43,29 @@
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
             this.gbAcciones = new System.Windows.Forms.GroupBox();
+            this.checkDeposito = new System.Windows.Forms.CheckBox();
+            this.checkRetiro = new System.Windows.Forms.CheckBox();
             this.txtMonto = new System.Windows.Forms.MaskedTextBox();
             this.buttRegistrar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.checkDeposito = new System.Windows.Forms.CheckBox();
-            this.checkRetiro = new System.Windows.Forms.CheckBox();
             this.lvTransacciones = new System.Windows.Forms.ListView();
             this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
+            this.gbAcciones2 = new System.Windows.Forms.GroupBox();
+            this.txtOpcion = new System.Windows.Forms.MaskedTextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.gbAccion = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.gbAcciones.SuspendLayout();
+            this.gbAcciones2.SuspendLayout();
+            this.gbAccion.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtNombre
@@ -141,7 +152,7 @@
             this.label2.AutoSize = true;
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(224, 9);
+            this.label2.Location = new System.Drawing.Point(238, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(157, 39);
             this.label2.TabIndex = 2;
@@ -155,9 +166,9 @@
             this.columnHeader2,
             this.columnHeader3});
             this.lvInfo.GridLines = true;
-            this.lvInfo.Location = new System.Drawing.Point(41, 228);
+            this.lvInfo.Location = new System.Drawing.Point(35, 406);
             this.lvInfo.Name = "lvInfo";
-            this.lvInfo.Size = new System.Drawing.Size(633, 80);
+            this.lvInfo.Size = new System.Drawing.Size(639, 80);
             this.lvInfo.TabIndex = 3;
             this.lvInfo.UseCompatibleStateImageBehavior = false;
             this.lvInfo.View = System.Windows.Forms.View.Details;
@@ -166,27 +177,24 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Nombre";
-            this.columnHeader1.Width = 180;
+            this.columnHeader1.Width = 200;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Numero de Cuenta";
-            this.columnHeader2.Width = 180;
+            this.columnHeader2.Width = 200;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Balance";
-            this.columnHeader3.Width = 180;
+            this.columnHeader3.Width = 200;
             // 
             // gbAcciones
             // 
-            this.gbAcciones.Controls.Add(this.txtMonto);
-            this.gbAcciones.Controls.Add(this.buttRegistrar);
-            this.gbAcciones.Controls.Add(this.label5);
             this.gbAcciones.Controls.Add(this.checkDeposito);
             this.gbAcciones.Controls.Add(this.checkRetiro);
             this.gbAcciones.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.gbAcciones.Location = new System.Drawing.Point(41, 359);
+            this.gbAcciones.Location = new System.Drawing.Point(963, 182);
             this.gbAcciones.Name = "gbAcciones";
             this.gbAcciones.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.gbAcciones.Size = new System.Drawing.Size(290, 155);
@@ -194,35 +202,6 @@
             this.gbAcciones.TabStop = false;
             this.gbAcciones.Text = "Acciones";
             this.gbAcciones.Visible = false;
-            // 
-            // txtMonto
-            // 
-            this.txtMonto.Location = new System.Drawing.Point(80, 99);
-            this.txtMonto.Mask = "99999999999999999999999999999999999";
-            this.txtMonto.Name = "txtMonto";
-            this.txtMonto.Size = new System.Drawing.Size(100, 25);
-            this.txtMonto.TabIndex = 5;
-            this.txtMonto.ValidatingType = typeof(int);
-            // 
-            // buttRegistrar
-            // 
-            this.buttRegistrar.AutoSize = true;
-            this.buttRegistrar.Location = new System.Drawing.Point(197, 97);
-            this.buttRegistrar.Name = "buttRegistrar";
-            this.buttRegistrar.Size = new System.Drawing.Size(75, 27);
-            this.buttRegistrar.TabIndex = 4;
-            this.buttRegistrar.Text = "Registrar";
-            this.buttRegistrar.UseVisualStyleBackColor = true;
-            this.buttRegistrar.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 107);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 17);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Monto";
             // 
             // checkDeposito
             // 
@@ -244,6 +223,35 @@
             this.checkRetiro.Text = "Retiro";
             this.checkRetiro.UseVisualStyleBackColor = true;
             // 
+            // txtMonto
+            // 
+            this.txtMonto.Location = new System.Drawing.Point(80, 42);
+            this.txtMonto.Mask = "99999999999999999999999999999999999";
+            this.txtMonto.Name = "txtMonto";
+            this.txtMonto.Size = new System.Drawing.Size(100, 25);
+            this.txtMonto.TabIndex = 5;
+            this.txtMonto.ValidatingType = typeof(int);
+            // 
+            // buttRegistrar
+            // 
+            this.buttRegistrar.AutoSize = true;
+            this.buttRegistrar.Location = new System.Drawing.Point(197, 40);
+            this.buttRegistrar.Name = "buttRegistrar";
+            this.buttRegistrar.Size = new System.Drawing.Size(75, 27);
+            this.buttRegistrar.TabIndex = 4;
+            this.buttRegistrar.Text = "Registrar";
+            this.buttRegistrar.UseVisualStyleBackColor = true;
+            this.buttRegistrar.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 45);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(49, 17);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Monto";
+            // 
             // lvTransacciones
             // 
             this.lvTransacciones.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -252,9 +260,9 @@
             this.columnHeader6,
             this.columnHeader7});
             this.lvTransacciones.GridLines = true;
-            this.lvTransacciones.Location = new System.Drawing.Point(368, 359);
+            this.lvTransacciones.Location = new System.Drawing.Point(1121, 74);
             this.lvTransacciones.Name = "lvTransacciones";
-            this.lvTransacciones.Size = new System.Drawing.Size(306, 242);
+            this.lvTransacciones.Size = new System.Drawing.Size(306, 263);
             this.lvTransacciones.TabIndex = 5;
             this.lvTransacciones.UseCompatibleStateImageBehavior = false;
             this.lvTransacciones.View = System.Windows.Forms.View.Details;
@@ -280,13 +288,108 @@
             this.columnHeader7.Text = "Accion";
             this.columnHeader7.Width = 100;
             // 
+            // gbAcciones2
+            // 
+            this.gbAcciones2.Controls.Add(this.txtOpcion);
+            this.gbAcciones2.Controls.Add(this.label10);
+            this.gbAcciones2.Controls.Add(this.label11);
+            this.gbAcciones2.Controls.Add(this.label7);
+            this.gbAcciones2.Controls.Add(this.label9);
+            this.gbAcciones2.Controls.Add(this.label8);
+            this.gbAcciones2.Controls.Add(this.label6);
+            this.gbAcciones2.Location = new System.Drawing.Point(35, 241);
+            this.gbAcciones2.Name = "gbAcciones2";
+            this.gbAcciones2.Size = new System.Drawing.Size(290, 133);
+            this.gbAcciones2.TabIndex = 6;
+            this.gbAcciones2.TabStop = false;
+            this.gbAcciones2.Text = "Acciones";
+            this.gbAcciones2.Visible = false;
+            // 
+            // txtOpcion
+            // 
+            this.txtOpcion.Location = new System.Drawing.Point(172, 32);
+            this.txtOpcion.Mask = "99999999999999999999999999";
+            this.txtOpcion.Name = "txtOpcion";
+            this.txtOpcion.Size = new System.Drawing.Size(100, 25);
+            this.txtOpcion.TabIndex = 7;
+            this.txtOpcion.ValidatingType = typeof(int);
+            this.txtOpcion.TextChanged += new System.EventHandler(this.maskedTextBox1_TextChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(43, 82);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(33, 17);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "Salir";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(12, 82);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(18, 17);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "3.";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(43, 53);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(92, 17);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Mostrar saldo";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(12, 53);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(18, 17);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "2.";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(43, 21);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(44, 17);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "Retiro";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 21);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(16, 17);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "1.";
+            // 
+            // gbAccion
+            // 
+            this.gbAccion.Controls.Add(this.buttRegistrar);
+            this.gbAccion.Controls.Add(this.txtMonto);
+            this.gbAccion.Controls.Add(this.label5);
+            this.gbAccion.Location = new System.Drawing.Point(384, 241);
+            this.gbAccion.Name = "gbAccion";
+            this.gbAccion.Size = new System.Drawing.Size(290, 133);
+            this.gbAccion.TabIndex = 7;
+            this.gbAccion.TabStop = false;
+            this.gbAccion.Text = "Retiro";
+            this.gbAccion.Visible = false;
+            // 
             // frmATM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.ClientSize = new System.Drawing.Size(802, 646);
+            this.ClientSize = new System.Drawing.Size(731, 554);
+            this.Controls.Add(this.gbAccion);
+            this.Controls.Add(this.gbAcciones2);
             this.Controls.Add(this.lvTransacciones);
             this.Controls.Add(this.gbAcciones);
             this.Controls.Add(this.lvInfo);
@@ -302,6 +405,10 @@
             this.groupBox1.PerformLayout();
             this.gbAcciones.ResumeLayout(false);
             this.gbAcciones.PerformLayout();
+            this.gbAcciones2.ResumeLayout(false);
+            this.gbAcciones2.PerformLayout();
+            this.gbAccion.ResumeLayout(false);
+            this.gbAccion.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -333,5 +440,14 @@
         private ColumnHeader columnHeader5;
         private ColumnHeader columnHeader6;
         private ColumnHeader columnHeader7;
+        private GroupBox gbAcciones2;
+        private Label label10;
+        private Label label11;
+        private Label label7;
+        private Label label9;
+        private Label label8;
+        private Label label6;
+        private MaskedTextBox txtOpcion;
+        private GroupBox gbAccion;
     }
 }
