@@ -44,7 +44,7 @@ namespace pjATM
         private void frmATM_Load(object sender, EventArgs e)
         {
             MessageBox.Show("Bienvenido al cajero ATM, Ingrese sus datos", "Bienvenida", MessageBoxButtons.OK);
-            cliente.Balance = 6000;
+            cliente.Balance = 4000;
             cliente.PIN = 1234;
             cliente.NumCuenta = 54321;
             cliente.Nombre = "Camilo Javier";
@@ -160,6 +160,7 @@ namespace pjATM
                         {
                             gbAccion.Text = "Retiro";
                             gbAccion.Visible = true;
+                            lvInfo.Visible = false;
                             break;
                         }
                     case (int)Acciones.Saldo:
@@ -178,7 +179,7 @@ namespace pjATM
                                 this.Close();
                             break;
                         }
-                    default: MessageBox.Show("Valor ingresado no valido", "Notificacion", MessageBoxButtons.OK, MessageBoxIcon.Information); break;
+                    default: MessageBox.Show("Valor ingresado no valido", "Notificacion", MessageBoxButtons.OK, MessageBoxIcon.Information);  txtMonto.Clear(); break;
                 }
             }
 
